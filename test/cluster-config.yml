@@ -1,0 +1,21 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eksctl-cluster
+  region: eu-west-1
+
+nodeGroups:
+  - name: infra
+    instanceType: m5.large
+    desiredCapacity: 3
+    volumeSize: 20
+    ssh:
+      allow: true # will use ~/.ssh/id_rsa.pub as the default ssh key
+      publicKeyPath: ~/.ssh/PublicKey.pub
+  - name: app
+    instanceType: m5.xlarge
+    desiredCapacity: 2
+    volumeSize: 20
+    ssh:
+      publicKeyPath: ~/.ssh/PublicKey.pub

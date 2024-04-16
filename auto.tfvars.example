@@ -1,0 +1,26 @@
+cluster_name = "eksctl-cluster"
+env_name     = "testing"
+region       = "eu-west-1"
+
+
+# scale_down_schedule = "cron(0 19 * * ? *)"
+# scale_up_schedule = "cron(0 8 * * ? *)"
+
+scale_down_schedule = "cron(0/2 * * * ? *)" #triggering every 2 minutes for testing purposes
+scale_up_schedule   = "cron(0/2 * * * ? *)" #triggering every 2 minutes for testing purposes
+
+
+autoscaling_groups_info = [
+  {
+    name             = "eksctl-eksctl-cluster-nodegroup-infra-NodeGroup-xqnYmFpEvyqm"
+    desired_capacity = 3
+    min_size         = 3
+    max_size         = 3
+  },
+  {
+    name             = "eksctl-eksctl-cluster-nodegroup-app-NodeGroup-1YvlpRgjGOEn"
+    desired_capacity = 2
+    min_size         = 2
+    max_size         = 2
+  }
+]

@@ -1,0 +1,38 @@
+repos:
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.86.0 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  hooks:
+    - id: terraform_fmt
+    - id: terraform_tflint
+    - id: terraform_docs
+      args:
+        - --hook-config=--path-to-file=README.md        # Valid UNIX path. I.e. ../TFDOC.md or docs/README.md etc.
+        - --hook-config=--add-to-existing-file=true     # Boolean. true or false
+        - --hook-config=--create-file-if-not-exist=true # Boolean. true or false
+        - --hook-config=--use-standard-markers=true     # Boolean. Defaults in v1.x to false. Set to true for compatibility with terraform-docs
+    - id: terraform_validate
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.3.0
+  hooks:
+    - id: check-added-large-files
+    - id: check-executables-have-shebangs
+    - id: check-merge-conflict
+    - id: check-shebang-scripts-are-executable
+    - id: detect-private-key
+    - id: end-of-file-fixer
+    - id: mixed-line-ending
+    - id: trailing-whitespace
+- repo: https://github.com/adrienverge/yamllint
+  rev: v1.27.1
+  hooks:
+    - id: yamllint
+- repo: https://github.com/gruntwork-io/pre-commit
+  rev: v0.1.17
+  hooks:
+    - id: helmlint
+    - id: shellcheck
+# -   repo: https://github.com/Yelp/detect-secrets
+#     rev: v1.4.0
+#     hooks:
+#     -   id: detect-secrets
+#         args: ['--baseline', '.secrets.baseline']
