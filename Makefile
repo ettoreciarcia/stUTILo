@@ -27,5 +27,10 @@ create-eks-cluster:
 delete-eks-cluster:
 	eksctl delete cluster -f $(PWD)/test/cluster-config.yml
 
+.PHONY: run-check
+run-check:
+	pre-commit run
 
-
+.PHONY: autoupdate
+autoupdate:
+	pre-commit autoupdate
