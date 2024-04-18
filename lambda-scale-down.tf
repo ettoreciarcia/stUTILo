@@ -19,8 +19,10 @@ resource "aws_lambda_function" "function_scale_down" {
   role = aws_iam_role.scale_role_lambda.arn
 
   logging_config {
-    log_format = "Text"
-    # log_group  = aws_cloudwatch_log_group.lambda_scale_down_log_group.name
+    application_log_level = var.log_level
+    log_format            = var.log_format
+    log_group             = aws_cloudwatch_log_group.lambda_scale_down_log_group.name
+    system_log_level      = var.log_level
   }
 
 

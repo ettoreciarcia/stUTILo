@@ -14,11 +14,6 @@ variable "region" {
 
 }
 
-# variable "nodegroup_names" {
-#   type        = list(string)
-#   description = "The names of the EKS nodegroups"
-# }
-
 variable "scale_down_schedule" {
   type        = string
   description = "The schedule for scaling down the EKS cluster"
@@ -39,4 +34,22 @@ variable "autoscaling_groups_info" {
     min_size         = number
     max_size         = number
   }))
+}
+
+variable "log_retention_days" {
+  type        = number
+  description = "The number of days to retain the logs"
+  default     = 7
+}
+
+variable "log_format" {
+  type        = string
+  description = "The format of the logs"
+  default     = "JSON"
+}
+
+variable "log_level" {
+  type        = string
+  description = "The log level"
+  default     = "INFO"
 }
