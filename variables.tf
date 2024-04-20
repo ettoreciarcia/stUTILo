@@ -23,7 +23,7 @@ variable "scale_down_schedule" {
 variable "scale_up_schedule" {
   type        = string
   description = "The schedule for scaling up the EKS cluster"
-  default     = "cron(0 8 * * ? *)"
+  default     = "cron(0 8 ? * 2-6 *)"
 }
 
 #I tried to get this information from the resource inside AWS, but it's too risky to use for the scale up function
@@ -34,6 +34,12 @@ variable "autoscaling_groups_info" {
     min_size         = number
     max_size         = number
   }))
+}
+
+variable "min_number_of_instances" {
+  type        = number
+  description = "The minimum number of instances in the autoscaling group"
+  default     = 0
 }
 
 variable "log_retention_days" {

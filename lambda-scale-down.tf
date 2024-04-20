@@ -32,6 +32,7 @@ resource "aws_lambda_function" "function_scale_down" {
       REGION         = var.region
       CLUSTER_NAME   = var.cluster_name
       ASG_GROUP_INFO = jsonencode(var.autoscaling_groups_info)
+      MIN_INSTANCES  = var.min_number_of_instances
     }
   }
 
