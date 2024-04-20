@@ -36,3 +36,4 @@ terraform.rc
 terraform.plan
 
 .envrc
+*.zip
