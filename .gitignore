@@ -39,3 +39,4 @@ secrets
 .envrc
 kubeconfig
 *.zip
+docs
