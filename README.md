@@ -1,4 +1,4 @@
-# Stutilo
+# stUTILo
 
 Have you ever felt like you're spending too much money on your pre-production environments? Well, Stutilo is the tool for you!
 
@@ -27,18 +27,18 @@ With Stutilo, you can halve this cost!
 Just configure the variables
 
 ```
-scale_down_schedule = "cron(0 19 * * ? *)"
-scale_up_schedule = "cron(0 8 * * ? *)"
+# scale_down_schedule = "cron(0 19 * * ? *)"
+# scale_up_schedule = "cron(0 8 ? * 2-6 *)" #scaling up from Monday to Friday at 8am
 ```
 
 And with some information about your ASGs, Stutilo will be able to shut down those resources at the specified time.
 
-With the default parameters, Stutilo can save you a whopping 13 hours of billing per day!
+With the default parameters, stUTILo can save you a whopping 13 hours of billing per day and the entire billing for weekends!
 
-With Stutilo, you can reduce your costs
+With stUTILo you can reduce your costs by up to
 
 <p align="center">
-  <img src="img/number.jpeg" />
+  <img src="img/number.png" />
 </p>
 
 
